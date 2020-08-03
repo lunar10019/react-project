@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/lunar10019/react-project.git/static/css/main.48bc95b9.chunk.css",
-    "main.js": "/lunar10019/react-project.git/static/js/main.d7c9c6b8.chunk.js",
-    "main.js.map": "/lunar10019/react-project.git/static/js/main.d7c9c6b8.chunk.js.map",
+    "main.js": "/lunar10019/react-project.git/static/js/main.929747a9.chunk.js",
+    "main.js.map": "/lunar10019/react-project.git/static/js/main.929747a9.chunk.js.map",
     "runtime-main.js": "/lunar10019/react-project.git/static/js/runtime-main.528db14b.js",
     "runtime-main.js.map": "/lunar10019/react-project.git/static/js/runtime-main.528db14b.js.map",
     "static/js/2.fe6aa84a.chunk.js": "/lunar10019/react-project.git/static/js/2.fe6aa84a.chunk.js",
     "static/js/2.fe6aa84a.chunk.js.map": "/lunar10019/react-project.git/static/js/2.fe6aa84a.chunk.js.map",
     "index.html": "/lunar10019/react-project.git/index.html",
-    "precache-manifest.e059a48b8cf6269aee1ea7a86ccac786.js": "/lunar10019/react-project.git/precache-manifest.e059a48b8cf6269aee1ea7a86ccac786.js",
+    "precache-manifest.13f5b42391626032dbec692469181641.js": "/lunar10019/react-project.git/precache-manifest.13f5b42391626032dbec692469181641.js",
     "service-worker.js": "/lunar10019/react-project.git/service-worker.js",
     "static/css/main.48bc95b9.chunk.css.map": "/lunar10019/react-project.git/static/css/main.48bc95b9.chunk.css.map",
     "static/js/2.fe6aa84a.chunk.js.LICENSE.txt": "/lunar10019/react-project.git/static/js/2.fe6aa84a.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.528db14b.js",
     "static/js/2.fe6aa84a.chunk.js",
     "static/css/main.48bc95b9.chunk.css",
-    "static/js/main.d7c9c6b8.chunk.js"
+    "static/js/main.929747a9.chunk.js"
   ]
 }
