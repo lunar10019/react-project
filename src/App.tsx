@@ -10,7 +10,7 @@ import Header from './components/ArtDesign/Header';
 
 const App = () => {
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <ThemeProvider theme={theme}>
         <MuiThemeProvider>
           <div>
