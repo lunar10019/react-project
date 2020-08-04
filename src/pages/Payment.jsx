@@ -13,14 +13,32 @@ const H = styled.h1`
   color: black;
 
   @media (max-width: 320px) {
-    /* background: mediumseagreen; */
     font-size: 21px;
+    padding: 80px 0 30px;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 21px;
+    padding: 80px 0 30px;
   }
 `;
 
 const ContainerPayment = styled.section`
   display: flex;
   justify-content: start;
+
+  @media (max-width: 320px) {
+    font-size: 21px;
+    justify-content: center;
+  }
+
+  @media (max-width: 375px) {
+    justify-content: center;
+  }
+
+  @media (max-width: 500px) {
+    justify-content: center;
+  }
 `;
 
 const Payment = () => {

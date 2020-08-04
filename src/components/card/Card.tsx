@@ -21,14 +21,7 @@ const ImgMediaCard1: React.FC<Values> = ({ alt, image, title, id }) => {
       <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
         <Card>
           <CardActionArea>
-            <CardMedia
-              component="img"
-              alt={alt}
-              // height="140"
-              // width="400"
-              image={image}
-              title={title}
-            />
+            <CardMedia component="img" alt={alt} image={image} title={title} />
           </CardActionArea>
           <CardActions>
             <Button size="small" color="primary">

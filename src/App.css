@@ -99,22 +99,6 @@ img {
   }
 }
 
-/* @media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 4fr;
-    grid-gap: 50px 20px;
-    justify-items: start;
-  }
-} */
-
-/* @media (max-width: 500px) {
-  .grid {
-    grid-template-columns: 4fr;
-    grid-gap: 50px 20px;
-    justify-items: start;
-  }
-} */
-
 @media (max-width: 320px) {
   .grid {
     grid-template-columns: 4fr;

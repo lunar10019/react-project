@@ -25,8 +25,6 @@ const Container = styled.section`
     -webkit-appearance: none;
 
     @media (min-width: 320px) {
-      /* width: 100px; */
-      /* padding: ; */
       margin: auto;
       align-self: flex-start;
       align-items: flex-start;
@@ -41,10 +39,9 @@ const Title = styled.h1`
   font-weight: 700 !important;
   color: #120338;
 
-  @media (min-width: 320px) {
-    /* width: 100px; */
-    /* margin-bottom: 20px; */
-    font-size: 20px;
+  @media (max-width: 320px) {
+    font-size: 25px;
+    margin-bottom: 30px;
   }
 `;
 
