@@ -10,6 +10,54 @@ const H = styled.h1`
   font-weight: 700 !important;
   padding: 200px 0 40px;
   color: black;
+
+  @media (max-width: 375px) {
+    font-size: 30px;
+    padding: 70px 0 10px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 25px;
+    padding: 70px 0 10px;
+  }
+`;
+
+const Grid = styled.section`
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px 70px;
+  justify-items: center;
+  align-items: center;
+
+  @media (max-width: 1380px) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px 20px;
+  }
+
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    grid-gap: 50px 20px;
+    justify-items: start;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    grid-gap: 50px 20px;
+    justify-items: start;
+  }
+
+  @media (max-width: 375px) {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    justify-items: center;
+  }
+
+  @media (max-width: 320px) {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    justify-items: center;
+  }
 `;
 
 const Main = () => {
@@ -21,7 +69,7 @@ const Main = () => {
         transition={{ delay: 0.2, type: 'spring' }}>
         <H>Выберите оператора</H>
       </motion.div>
-      <div className="grid">
+      <Grid>
         {fakeData.map((operator) => (
           <div>
             <ImgMediaCard1
@@ -32,7 +80,7 @@ const Main = () => {
             />
           </div>
         ))}
-      </div>
+      </Grid>
     </div>
   );
 };

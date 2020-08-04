@@ -17,6 +17,11 @@ const H = styled.h1`
     padding: 80px 0 30px;
   }
 
+  @media (max-width: 375px) {
+    font-size: 21px;
+    padding: 80px 0 30px;
+  }
+
   @media (max-width: 360px) {
     font-size: 21px;
     padding: 80px 0 30px;
