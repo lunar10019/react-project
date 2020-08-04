@@ -1,21 +1,21 @@
 [
   {
     "id": 1,
-    "name": "Mtc",
-    "url": "https://static.ssl.mts.ru/mts_rf/images/MTS_Logo_rus_r.png",
+    "name": "МТС",
+    "url": "https://worldskills2019.com/application/files/5115/6449/4534/megafon.png",
     "alt": "MTC",
     "title": "МТС"
   },
   {
     "id": 2,
-    "name": "Beeline",
-    "url": "https://zg-brand.ru/images/Istoria_Brenda/9.png",
+    "name": "Билайн",
+    "url": "https://worldskills2019.com/application/files/5115/6449/4534/megafon.png",
     "alt": "BEELINE",
     "title": "BEELINE"
   },
   {
     "id": 3,
-    "name": "Megafon",
+    "name": "МегаФон",
     "url": "https://worldskills2019.com/application/files/5115/6449/4534/megafon.png",
     "alt": "MEGAFON",
     "title": "MEGAFON"

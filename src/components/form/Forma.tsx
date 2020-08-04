@@ -23,6 +23,14 @@ const Container = styled.section`
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
+
+    @media (min-width: 320px) {
+      /* width: 100px; */
+      /* padding: ; */
+      margin: auto;
+      align-self: flex-start;
+      align-items: flex-start;
+    }
   }
 `;
 
@@ -32,6 +40,12 @@ const Title = styled.h1`
   font-family: 'Officina Serif' !important;
   font-weight: 700 !important;
   color: #120338;
+
+  @media (min-width: 320px) {
+    /* width: 100px; */
+    /* margin-bottom: 20px; */
+    font-size: 20px;
+  }
 `;
 
 const sleep = (time) => new Promise((acc) => setTimeout(acc, time));
@@ -53,9 +67,7 @@ interface State {
 const phoneRegExp = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
 
 const PaymentSchema = Yup.object().shape({
-  phoneNumber: Yup.string()
-    .required('Введите номер')
-    .matches(phoneRegExp, 'Неправильный номер телефона'),
+  phoneNumber: Yup.string().required('Введите номер').matches(phoneRegExp, 'Некорректный номер'),
   price: Yup.number()
     .min(1, '')
     .max(1000, 'Сумма не должна превышать 1000₽')

@@ -15,15 +15,7 @@ interface Values {
   id: any;
 }
 
-// const useStyles = makeStyles({
-//   root: {
-//     maxWidth: 450,
-//   },
-// });
-
 const ImgMediaCard1: React.FC<Values> = ({ alt, image, title, id }) => {
-  // const classes = useStyles();
-
   return (
     <NavLink to={`/payment/${id}`}>
       <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
@@ -32,8 +24,8 @@ const ImgMediaCard1: React.FC<Values> = ({ alt, image, title, id }) => {
             <CardMedia
               component="img"
               alt={alt}
-              height="400"
-              width="400"
+              // height="140"
+              // width="400"
               image={image}
               title={title}
             />

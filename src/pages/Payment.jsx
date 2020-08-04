@@ -11,12 +11,15 @@ const H = styled.h1`
   font-weight: 700 !important;
   padding: 100px 0 40px;
   color: black;
+
+  @media (min-width: 320px) {
+    /* background: mediumseagreen; */
+    font-size: 21px;
+  }
 `;
 
 const ContainerPayment = styled.section`
   display: flex;
-  /* align-self: center; */
-  /* opacity: 0.9; */
   justify-content: start;
 `;
 
