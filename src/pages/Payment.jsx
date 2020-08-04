@@ -12,7 +12,7 @@ const H = styled.h1`
   padding: 100px 0 40px;
   color: black;
 
-  @media (min-width: 320px) {
+  @media (max-width: 320px) {
     /* background: mediumseagreen; */
     font-size: 21px;
   }
