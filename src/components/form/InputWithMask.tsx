@@ -49,7 +49,7 @@ const MyMaskField: React.FC<Values> = ({ id, name, variant, type, label }) => {
         InputProps={{
           inputComponent: TextMaskCustom as any,
         }}
-        error={!!meta.error}
+        error={!!meta.touched && !!meta.error}
       />
       {meta.touched && meta.error ? <div className="textErrror">{meta.error}</div> : null}
     </div>

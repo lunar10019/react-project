@@ -16,7 +16,8 @@ const H = styled.h1`
 const ContainerPayment = styled.section`
   display: flex;
   /* align-self: center; */
-  justify-content: center;
+  /* opacity: 0.9; */
+  justify-content: start;
 `;
 
 const Payment = () => {
@@ -27,7 +28,10 @@ const Payment = () => {
   };
   return (
     <div>
-      <motion.div initial={{ x: 850 }} animate={{ x: 20 }} transition={{ ease: 'easeOut' }}>
+      <motion.div
+        initial={{ x: 280 }}
+        animate={{ x: 0 }}
+        transition={{ delay: 0.2, type: 'spring' }}>
         <H>Выбранный оператор: {fakeData.find(operator).name}</H>
       </motion.div>
 

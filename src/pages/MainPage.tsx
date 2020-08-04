@@ -1,5 +1,5 @@
 import React from 'react';
-import ImgMediaCard1 from '../components/ArtDesign/Card';
+import ImgMediaCard1 from '../components/card/Card';
 import { motion } from 'framer-motion';
 import fakeData from '../fakeData/operators.json';
 import styled from 'styled-components';
@@ -8,7 +8,7 @@ const H = styled.h1`
   font-size: 41px;
   font-family: 'Officina Serif' !important;
   font-weight: 700 !important;
-  padding: 100px 0 40px;
+  padding: 200px 0 40px;
   color: black;
 `;
 

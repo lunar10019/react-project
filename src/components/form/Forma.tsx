@@ -102,6 +102,7 @@ const Forma: React.FC = (props) => {
           validationSchema={PaymentSchema}
           handleChange={handleChange}
           isSubmitting
+          handleBlur
           // onClick={handleClick}
           // component={MyForm}
           dirty>
