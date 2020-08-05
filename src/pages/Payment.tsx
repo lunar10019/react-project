@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import MyForm from '../components/form/myForm';
 import styled from 'styled-components';
 import fakeData from '../fakeData/operators.json';
 import { motion } from 'framer-motion';
+import MyForm from '../components/form/myForm';
 
 interface Values {
   fakeData: Array<Object>;

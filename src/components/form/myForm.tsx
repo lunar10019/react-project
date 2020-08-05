@@ -17,12 +17,13 @@ const BlockForm = styled.section`
   background: white;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   input[type='number'] {
-    -moz-appearance: textfield;
-  }
+  -moz-appearance: textfield;
+}
 
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 
     @media (min-width: 320px) {
       margin: auto;
@@ -77,7 +78,7 @@ const PaymentSchema = Yup.object().shape({
 });
 
 //Компонент
-const Forma: React.FC = (props) => {
+const MyForm: React.FC = (props) => {
   const successMsg = [
     'Оплата мобильной связи прошла успешно!',
     'Произошла ошибка! Повторите операцию',
@@ -164,4 +165,4 @@ const Forma: React.FC = (props) => {
   );
 };
 
-export default Forma;
+export default MyForm;
