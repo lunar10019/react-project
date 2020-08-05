@@ -9,11 +9,11 @@ import { CircularProgress } from 'material-ui';
 import styled from 'styled-components';
 
 ///STYLE
-const Container = styled.section`
+const BlockForm = styled.section`
   display: inline-block;
   align-self: center;
   align-items: center;
-  padding: 20px 60px 50px 60px;
+  padding: 20px 70px 50px 70px;
   background: white;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   input[type='number'] {
@@ -28,8 +28,13 @@ const Container = styled.section`
       margin: auto;
       align-self: flex-start;
       align-items: flex-start;
+      padding: 10px 50px 30px 50px;
     }
   }
+`;
+
+const Indent = styled.section`
+  margin: 25px 0;
 `;
 
 const Title = styled.h1`
@@ -101,7 +106,7 @@ const Forma: React.FC = (props) => {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
-      <Container>
+      <BlockForm>
         <div>
           <Title>Пополнить счёт</Title>
         </div>
@@ -112,14 +117,11 @@ const Forma: React.FC = (props) => {
           handleChange={handleChange}
           isSubmitting
           handleBlur
-          // onClick={handleClick}
-          // component={MyForm}
           dirty>
-          {(props) => {
-            // props.isSubmitting;
+          {() => {
             return (
               <Form>
-                <div className="form1">
+                <Indent>
                   <MyMaskField
                     variant="outlined"
                     label="Номер телефона"
@@ -129,18 +131,17 @@ const Forma: React.FC = (props) => {
                     type="string"
                     required
                   />
-                  <div>
-                    <MyTextField
-                      variant="outlined"
-                      label="Сумма платежа"
-                      name="price"
-                      id="price"
-                      type="number"
-                      required
-                    />
-                  </div>
-                </div>
-
+                </Indent>
+                <Indent>
+                  <MyTextField
+                    variant="outlined"
+                    label="Сумма платежа"
+                    name="price"
+                    id="price"
+                    type="number"
+                    required
+                  />
+                </Indent>
                 <div>
                   {!isLoading && (
                     <Button variant="outlined" type="submit">
@@ -158,7 +159,7 @@ const Forma: React.FC = (props) => {
             );
           }}
         </Formik>
-      </Container>
+      </BlockForm>
     </motion.div>
   );
 };

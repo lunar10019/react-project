@@ -2,6 +2,17 @@ import React from 'react';
 import { useField } from 'formik';
 import TextField from '@material-ui/core/TextField';
 import MaskedInput from 'react-input-mask';
+import styled from 'styled-components';
+
+export const TextError = styled.div`
+  color: red;
+  margin-bottom: -18px;
+  margin-right: -50px;
+
+  @media (min-width: 320px) {
+    font-size: 14px;
+  }
+`;
 
 interface Values {
   name: string;
@@ -34,7 +45,6 @@ const TextMaskCustom = (props: TextMaskCustomProps) => {
 
 const MyMaskField: React.FC<Values> = ({ id, name, variant, type, label }) => {
   const [field, meta] = useField(name);
-  // console.log(meta.error, field.value);
   return (
     <div className="form2">
       <TextField
@@ -51,7 +61,7 @@ const MyMaskField: React.FC<Values> = ({ id, name, variant, type, label }) => {
         }}
         error={!!meta.touched && !!meta.error}
       />
-      {meta.touched && meta.error ? <div className="textErrror">{meta.error}</div> : null}
+      {meta.touched && meta.error ? <TextError>{meta.error}</TextError> : null}
     </div>
   );
 };

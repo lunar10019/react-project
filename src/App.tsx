@@ -5,9 +5,17 @@ import { Switch, Route, HashRouter } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core';
 import theme from './theme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Payment from './pages/Payment';
 import Header from './components/header/Header';
 import styled from 'styled-components';
+import Payment from './pages/Payment';
+
+// const Background = styled.div<StyledDivProps>`
+//   background-image: ${(props) => `url(${props.background})`};
+//   backdrop-filter: blur(3px);
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   height: 100vh;
+// `;
 
 const AppWrapper = styled.section`
   display: grid;
@@ -31,6 +39,11 @@ const AppWrapper = styled.section`
     grid-gap: 50px 20px;
     justify-items: start;
   }
+  @media (max-width: 450px) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
   @media (max-width: 375px) {
     display: flex;
@@ -45,12 +58,16 @@ const AppWrapper = styled.section`
   }
 `;
 
-const App = () => {
+interface StyledDivProps {
+  background?: string;
+}
+
+const App: React.FC<StyledDivProps> = () => {
   return (
     <HashRouter>
-      <ThemeProvider theme={theme}>
-        <MuiThemeProvider>
-          <div>
+      <div>
+        <ThemeProvider theme={theme}>
+          <MuiThemeProvider>
             <div>
               <Header />
             </div>
@@ -60,9 +77,9 @@ const App = () => {
                 <Route path="/payment/:id" component={Payment} />
               </Switch>
             </AppWrapper>
-          </div>
-        </MuiThemeProvider>
-      </ThemeProvider>
+          </MuiThemeProvider>
+        </ThemeProvider>
+      </div>
     </HashRouter>
   );
 };

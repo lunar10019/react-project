@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import fakeData from '../fakeData/operators.json';
-import Forma from '../components/form/Forma';
+import Forma from '../components/form/myForm';
 import styled from 'styled-components';
+import fakeData from '../fakeData/operators.json';
 import { motion } from 'framer-motion';
 
 const H = styled.h1`
@@ -28,6 +28,10 @@ const H = styled.h1`
   }
 `;
 
+interface Values {
+  fakeData: Array<Object>;
+}
+
 const ContainerPayment = styled.section`
   display: flex;
   justify-content: start;
@@ -46,7 +50,7 @@ const ContainerPayment = styled.section`
   }
 `;
 
-const Payment = () => {
+const Payment: React.FC<Values> = () => {
   const { id } = useParams();
 
   const operator = (fake) => {
@@ -60,7 +64,6 @@ const Payment = () => {
         transition={{ delay: 0.2, type: 'spring' }}>
         <H>Выбранный оператор: {fakeData.find(operator).name}</H>
       </motion.div>
-
       <ContainerPayment>
         <div>
           <Forma />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useField } from 'formik';
 import TextField from '@material-ui/core/TextField';
+import { TextError } from './InputWithMask';
 
 interface Values {
   name: string;
@@ -27,7 +28,7 @@ const MyTextField: React.FC<Values> = ({ id, name, type, variant, label }) => {
         onChange={field.onChange}
         error={!!meta.touched && !!meta.error}
       />
-      {meta.touched && meta.error ? <div className="textErrror">{meta.error}</div> : null}
+      {meta.touched && meta.error ? <TextError>{meta.error}</TextError> : null}
     </div>
   );
 };
