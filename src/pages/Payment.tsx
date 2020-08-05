@@ -1,11 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Forma from '../components/form/myForm';
+import MyForm from '../components/form/myForm';
 import styled from 'styled-components';
 import fakeData from '../fakeData/operators.json';
 import { motion } from 'framer-motion';
 
-const H = styled.h1`
+const SelectedOperator = styled.h1`
   font-size: 41px;
   font-family: 'Officina Serif' !important;
   font-weight: 700 !important;
@@ -62,11 +62,11 @@ const Payment: React.FC<Values> = () => {
         initial={{ x: 280 }}
         animate={{ x: 0 }}
         transition={{ delay: 0.2, type: 'spring' }}>
-        <H>Выбранный оператор: {fakeData.find(operator).name}</H>
+        <SelectedOperator>Выбранный оператор: {fakeData.find(operator).name}</SelectedOperator>
       </motion.div>
       <ContainerPayment>
         <div>
-          <Forma />
+          <MyForm />
         </div>
       </ContainerPayment>
     </div>
