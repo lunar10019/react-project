@@ -9,14 +9,6 @@ import Header from './components/header/Header';
 import styled from 'styled-components';
 import Payment from './pages/Payment';
 
-// const Background = styled.div<StyledDivProps>`
-//   background-image: ${(props) => `url(${props.background})`};
-//   backdrop-filter: blur(3px);
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   height: 100vh;
-// `;
-
 const AppWrapper = styled.section`
   display: grid;
   width: 1280px;
@@ -58,11 +50,7 @@ const AppWrapper = styled.section`
   }
 `;
 
-interface StyledDivProps {
-  background?: string;
-}
-
-const App: React.FC<StyledDivProps> = () => {
+const App = () => {
   return (
     <HashRouter>
       <div>
