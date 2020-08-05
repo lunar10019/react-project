@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import fakeData from '../fakeData/operators.json';
 import styled from 'styled-components';
 
-const H = styled.h1`
+const Choose = styled.h1`
   font-size: 41px;
   font-family: 'Officina Serif' !important;
   font-weight: 700 !important;
@@ -67,7 +67,7 @@ const Main = () => {
         initial={{ y: -250 }}
         animate={{ y: -20 }}
         transition={{ delay: 0.2, type: 'spring' }}>
-        <H>Выберите оператора</H>
+        <Choose>Выберите оператора</Choose>
       </motion.div>
       <Grid>
         {fakeData.map((operator) => (

@@ -5,6 +5,10 @@ import styled from 'styled-components';
 import fakeData from '../fakeData/operators.json';
 import { motion } from 'framer-motion';
 
+interface Values {
+  fakeData: Array<Object>;
+}
+
 const SelectedOperator = styled.h1`
   font-size: 41px;
   font-family: 'Officina Serif' !important;
@@ -27,10 +31,6 @@ const SelectedOperator = styled.h1`
     padding: 80px 0 30px;
   }
 `;
-
-interface Values {
-  fakeData: Array<Object>;
-}
 
 const ContainerPayment = styled.section`
   display: flex;
