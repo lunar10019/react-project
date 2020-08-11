@@ -65,9 +65,7 @@ const Payment: React.FC<Values> = () => {
         <SelectedOperator>Выбранный оператор: {fakeData.find(operator).name}</SelectedOperator>
       </motion.div>
       <ContainerPayment>
-        <div>
-          <MyForm />
-        </div>
+        <MyForm />
       </ContainerPayment>
     </div>
   );

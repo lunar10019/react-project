@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
-import { Formik, Form, FormikHelpers } from 'formik';
-import MyTextField from './Input';
-import MyMaskField from './InputWithMask';
+import React, { useState, ReactElement } from 'react';
+import { Formik, FormikHelpers } from 'formik';
 import { motion } from 'framer-motion';
-import Button from '@material-ui/core/Button';
-import { CircularProgress } from 'material-ui';
 import styled from 'styled-components';
 import { PaymentSchema } from './PaymentSchema';
+import Forma from './PaymentForm.form';
 
 ///STYLE
 const BlockForm = styled.section`
@@ -31,10 +28,6 @@ const BlockForm = styled.section`
     align-items: flex-start;
     padding: 10px 50px 30px 50px;
   }
-`;
-
-const Indent = styled.section`
-  margin: 25px 0;
 `;
 
 const Title = styled.h1`
@@ -83,17 +76,6 @@ const MyForm: React.FC = (props) => {
     alert(successMsg[Math.round(Math.random())]);
   };
 
-  const [values, setValues] = React.useState<State>({
-    textmask: '',
-  });
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-  };
-
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
       <BlockForm>
@@ -104,48 +86,7 @@ const MyForm: React.FC = (props) => {
           initialValues={initialValues}
           onSubmit={handleSubmit}
           validationSchema={PaymentSchema}
-          handleChange={handleChange}>
-          {() => {
-            return (
-              <Form>
-                <Indent>
-                  <MyMaskField
-                    variant="outlined"
-                    label="Номер телефона"
-                    textmask=""
-                    name="phoneNumber"
-                    id="phoneNumber"
-                    type="string"
-                    required
-                  />
-                </Indent>
-                <Indent>
-                  <MyTextField
-                    variant="outlined"
-                    label="Сумма платежа"
-                    name="price"
-                    id="price"
-                    type="number"
-                    required
-                  />
-                </Indent>
-                <div>
-                  {!isLoading && (
-                    <Button variant="outlined" type="submit">
-                      Оплатить
-                    </Button>
-                  )}
-                  {isLoading && (
-                    <Button variant="outlined" type="submit" disabled>
-                      Оплата...
-                      <CircularProgress color="#6200ea" />
-                    </Button>
-                  )}
-                </div>
-              </Form>
-            );
-          }}
-        </Formik>
+          component={(): ReactElement => <Forma isLoading={isLoading} />}></Formik>
       </BlockForm>
     </motion.div>
   );
