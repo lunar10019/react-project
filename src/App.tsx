@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
-import Main from './pages/MainPage';
-import { Switch, Route, HashRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core';
 import theme from './theme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from './components/header/Header';
 import styled from 'styled-components';
-import Payment from './pages/Payment';
+import Router from './components/Router/Router';
 
 const AppWrapper = styled.section`
   display: grid;
@@ -53,21 +52,14 @@ const AppWrapper = styled.section`
 const App = () => {
   return (
     <HashRouter>
-      <div>
-        <ThemeProvider theme={theme}>
-          <MuiThemeProvider>
-            <div>
-              <Header />
-            </div>
-            <AppWrapper>
-              <Switch>
-                <Route exact path="/" component={Main} />
-                <Route path="/payment/:id" component={Payment} />
-              </Switch>
-            </AppWrapper>
-          </MuiThemeProvider>
-        </ThemeProvider>
-      </div>
+      <ThemeProvider theme={theme}>
+        <MuiThemeProvider>
+          <Header />
+          <AppWrapper>
+            <Router />
+          </AppWrapper>
+        </MuiThemeProvider>
+      </ThemeProvider>
     </HashRouter>
   );
 };

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Formik, Form, FormikHelpers } from 'formik';
-import * as Yup from 'yup';
 import MyTextField from './Input';
 import MyMaskField from './InputWithMask';
 import { motion } from 'framer-motion';
 import Button from '@material-ui/core/Button';
 import { CircularProgress } from 'material-ui';
 import styled from 'styled-components';
+import { PaymentSchema } from './PaymentSchema';
 
 ///STYLE
 const BlockForm = styled.section`
@@ -17,20 +17,19 @@ const BlockForm = styled.section`
   background: white;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   input[type='number'] {
-  -moz-appearance: textfield;
-}
+    -moz-appearance: textfield;
+  }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 
-    @media (min-width: 320px) {
-      margin: auto;
-      align-self: flex-start;
-      align-items: flex-start;
-      padding: 10px 50px 30px 50px;
-    }
+  @media (min-width: 320px) {
+    margin: auto;
+    align-self: flex-start;
+    align-items: flex-start;
+    padding: 10px 50px 30px 50px;
   }
 `;
 
@@ -66,16 +65,6 @@ const initialValues: FormValues = {
 interface State {
   textmask: string;
 }
-
-const phoneRegExp = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
-
-const PaymentSchema = Yup.object().shape({
-  phoneNumber: Yup.string().required('Введите номер').matches(phoneRegExp, 'Некорректный номер'),
-  price: Yup.number()
-    .min(1, '')
-    .max(1000, 'Сумма не должна превышать 1000₽')
-    .required('Введите сумму платежа'),
-});
 
 //Компонент
 const MyForm: React.FC = (props) => {
@@ -115,10 +104,7 @@ const MyForm: React.FC = (props) => {
           initialValues={initialValues}
           onSubmit={handleSubmit}
           validationSchema={PaymentSchema}
-          handleChange={handleChange}
-          isSubmitting
-          handleBlur
-          dirty>
+          handleChange={handleChange}>
           {() => {
             return (
               <Form>

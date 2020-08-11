@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ImgMediaCard1 from '../components/card/Card';
 import { motion } from 'framer-motion';
 import fakeData from '../fakeData/operators.json';
@@ -62,7 +62,7 @@ const Grid = styled.section`
 
 const Main = () => {
   return (
-    <div>
+    <Fragment>
       <motion.div
         initial={{ y: -250 }}
         animate={{ y: -20 }}
@@ -71,17 +71,17 @@ const Main = () => {
       </motion.div>
       <Grid>
         {fakeData.map((operator) => (
-          <div>
+          <Fragment key={operator.id}>
             <ImgMediaCard1
               alt={operator.alt}
               image={operator.url}
               title={operator.title}
               id={operator.id}
             />
-          </div>
+          </Fragment>
         ))}
       </Grid>
-    </div>
+    </Fragment>
   );
 };
 

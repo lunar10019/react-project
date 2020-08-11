@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import fakeData from '../fakeData/operators.json';
 import { motion } from 'framer-motion';
-import MyForm from '../components/form/myForm';
+import MyForm from '../components/form/PaymentForm.view';
 
 interface Values {
   fakeData: Array<Object>;

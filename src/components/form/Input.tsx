@@ -1,5 +1,5 @@
-import React from 'react';
-import { useField } from 'formik';
+import React, { Fragment } from 'react';
+import { useField, ErrorMessage } from 'formik';
 import TextField from '@material-ui/core/TextField';
 import { TextError } from './InputWithMask';
 
@@ -16,7 +16,7 @@ const MyTextField: React.FC<Values> = ({ id, name, type, variant, label }) => {
   const [field, meta] = useField({ id, name, type });
 
   return (
-    <div className="form">
+    <Fragment>
       <TextField
         variant={variant}
         autoComplete="off"
@@ -28,8 +28,10 @@ const MyTextField: React.FC<Values> = ({ id, name, type, variant, label }) => {
         onChange={field.onChange}
         error={!!meta.touched && !!meta.error}
       />
-      {meta.touched && meta.error ? <TextError>{meta.error}</TextError> : null}
-    </div>
+      <TextError>
+        <ErrorMessage name={name} />
+      </TextError>
+    </Fragment>
   );
 };
 
