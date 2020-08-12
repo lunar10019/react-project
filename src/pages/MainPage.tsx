@@ -3,6 +3,7 @@ import ImgMediaCard1 from '../components/card/Card';
 import { motion } from 'framer-motion';
 import fakeData from '../fakeData/operators.json';
 import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
 
 const Choose = styled.h1`
   font-size: 41px;
@@ -62,12 +63,14 @@ const Grid = styled.section`
 
 const Main = () => {
   return (
-    <Fragment>
+    <div>
       <motion.div
         initial={{ y: -250 }}
         animate={{ y: -20 }}
         transition={{ delay: 0.2, type: 'spring' }}>
-        <Choose>Выберите оператора</Choose>
+        <Choose>
+          <FormattedMessage id="chooseOperator" defaultMessage="Выберите оператора" />
+        </Choose>
       </motion.div>
       <Grid>
         {fakeData.map((operator) => (
@@ -81,7 +84,7 @@ const Main = () => {
           </Fragment>
         ))}
       </Grid>
-    </Fragment>
+    </div>
   );
 };
 

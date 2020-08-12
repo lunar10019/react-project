@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import fakeData from '../fakeData/operators.json';
 import { motion } from 'framer-motion';
 import MyForm from '../components/form/PaymentForm.view';
+import { FormattedMessage } from 'react-intl';
 
 interface Values {
   fakeData: Array<Object>;
@@ -62,7 +63,10 @@ const Payment: React.FC<Values> = () => {
         initial={{ x: 280 }}
         animate={{ x: 0 }}
         transition={{ delay: 0.2, type: 'spring' }}>
-        <SelectedOperator>Выбранный оператор: {fakeData.find(operator).name}</SelectedOperator>
+        <SelectedOperator>
+          <FormattedMessage id="selectedOperator" defaultMessage="Выбранный оператор: " />
+          {fakeData.find(operator).name}
+        </SelectedOperator>
       </motion.div>
       <ContainerPayment>
         <MyForm />

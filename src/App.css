@@ -7,11 +7,11 @@ img {
   height: 150px;
 }
 
-body {
+/* body {
   background-image: url('./image/background.jpeg');
   backdrop-filter: blur(3px);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 100vh;
-}
+} */

@@ -6,12 +6,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { FormattedMessage } from 'react-intl';
 
 interface Values {
   alt: string;
   image: string;
   title: string;
-  id: any;
+  id: number;
 }
 
 const ImgMediaCard1: React.FC<Values> = ({ alt, image, title, id }) => {
@@ -24,7 +25,7 @@ const ImgMediaCard1: React.FC<Values> = ({ alt, image, title, id }) => {
           </CardActionArea>
           <CardActions>
             <Button size="small" color="primary">
-              Пополнить баланс
+              <FormattedMessage id="toApBalance" defaultMessage="Пополнить баланс" />
             </Button>
           </CardActions>
         </Card>

@@ -5,6 +5,7 @@ import MyMaskField from './InputWithMask';
 import Button from '@material-ui/core/Button';
 import { CircularProgress } from 'material-ui';
 import styled from 'styled-components';
+// import { injectIntl, intlShape } from 'react-intl';
 
 const Indent = styled.section`
   margin: 25px 0;
@@ -21,7 +22,6 @@ export const Forma = ({ isLoading = false }: Props): ReactElement<Props> => {
         <MyMaskField
           variant="outlined"
           label="Номер телефона"
-          textmask=""
           name="phoneNumber"
           id="phoneNumber"
           type="string"

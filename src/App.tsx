@@ -4,9 +4,10 @@ import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core';
 import theme from './theme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Header from './components/header/Header';
 import styled from 'styled-components';
 import Router from './components/Router/Router';
+import img from './image/background.jpeg';
+import Header from './components/header/Header';
 
 const AppWrapper = styled.section`
   display: grid;
@@ -49,15 +50,26 @@ const AppWrapper = styled.section`
   }
 `;
 
+const Background = styled.section`
+  background-image: url(${img});
+  backdrop-filter: blur(3px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+`;
+
 const App = () => {
   return (
     <HashRouter>
       <ThemeProvider theme={theme}>
         <MuiThemeProvider>
-          <Header />
-          <AppWrapper>
-            <Router />
-          </AppWrapper>
+          <Background>
+            <Header />
+            <AppWrapper>
+              <Router />
+            </AppWrapper>
+          </Background>
         </MuiThemeProvider>
       </ThemeProvider>
     </HashRouter>

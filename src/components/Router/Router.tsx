@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Main from '../../pages/MainPage';
 import PaymentPage from '../../pages/PaymentPage';
+import Main from '../../pages/MainPage';
 
 const Router = () => {
   return (

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { PaymentSchema } from './PaymentSchema';
 import Forma from './PaymentForm.form';
+import { FormattedMessage } from 'react-intl';
 
 ///STYLE
 const BlockForm = styled.section`
@@ -80,7 +81,9 @@ const MyForm: React.FC = (props) => {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
       <BlockForm>
         <div>
-          <Title>Пополнить счёт</Title>
+          <Title>
+            <FormattedMessage id="replenishAccounts" defaultMessage="Пополнить счёт" />
+          </Title>
         </div>
         <Formik
           initialValues={initialValues}
