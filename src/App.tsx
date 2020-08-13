@@ -3,7 +3,7 @@ import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core';
 import theme from './theme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Router from './components/Router/Router';
+import Router from './components/router/Router';
 import Header from './components/header/Header';
 import styled from 'styled-components';
 

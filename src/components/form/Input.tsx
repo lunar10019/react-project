@@ -27,6 +27,7 @@ const MyTextField: React.FC<Values> = ({ id, name, type, variant, label }) => {
         name={name}
         type={type}
         value={field.value}
+        onBlur={field.onBlur}
         onChange={field.onChange}
         error={!!meta.touched && !!meta.error}
       />
