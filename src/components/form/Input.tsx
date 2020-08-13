@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { useField, ErrorMessage } from 'formik';
 import TextField from '@material-ui/core/TextField';
 import { TextError } from './InputWithMask';
+import { useIntl } from 'react-intl';
 
 interface Values {
   name: string;
@@ -14,6 +15,7 @@ interface Values {
 
 const MyTextField: React.FC<Values> = ({ id, name, type, variant, label }) => {
   const [field, meta] = useField({ id, name, type });
+  const intl = useIntl();
 
   return (
     <Fragment>
@@ -29,7 +31,7 @@ const MyTextField: React.FC<Values> = ({ id, name, type, variant, label }) => {
         error={!!meta.touched && !!meta.error}
       />
       <TextError>
-        <ErrorMessage name={name} />
+        <ErrorMessage name={name} render={(id) => <div>{intl.formatMessage({ id })}</div>} />
       </TextError>
     </Fragment>
   );

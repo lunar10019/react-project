@@ -6,5 +6,11 @@
   "phoneNumber": "Phone Number",
   "price": "Payment Amount",
   "pay": "Pay",
-  "payment": "Payment..."
+  "payment": "Payment...",
+  "phoneRequired": "Enter telephone number",
+  "invalidNumber": "Invalid number",
+  "amountLimit": "Maximum amount 1000",
+  "enterAmount": "Enter the amount",
+  "successMsg": "Mobile payment was successful!",
+  "failMsg": "Error occurred, repeat operation"
 }

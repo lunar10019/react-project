@@ -3,10 +3,20 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FormattedMessage } from 'react-intl';
+
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    img: {
+      height: '150px',
+      objectFit: 'contain',
+    },
+  }),
+);
 
 interface Values {
   alt: string;
@@ -16,12 +26,20 @@ interface Values {
 }
 
 const ImgMediaCard1: React.FC<Values> = ({ alt, image, title, id }) => {
+  const classes = useStyles();
+
   return (
     <NavLink to={`/payment/${id}`}>
       <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
         <Card>
           <CardActionArea>
-            <CardMedia component="img" alt={alt} image={image} title={title} />
+            <CardMedia
+              component="img"
+              alt={alt}
+              image={image}
+              title={title}
+              className={classes.img}
+            />
           </CardActionArea>
           <CardActions>
             <Button size="small" color="primary">

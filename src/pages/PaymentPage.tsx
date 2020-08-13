@@ -5,10 +5,16 @@ import fakeData from '../fakeData/operators.json';
 import { motion } from 'framer-motion';
 import MyForm from '../components/form/PaymentForm.view';
 import { FormattedMessage } from 'react-intl';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 interface Values {
   fakeData: Array<Object>;
 }
+
+const Root = styled.main`
+  max-width: 1280px;
+  margin: 0 auto;
+`;
 
 const SelectedOperator = styled.h1`
   font-size: 41px;
@@ -58,7 +64,7 @@ const Payment: React.FC<Values> = () => {
     return fake.id == id;
   };
   return (
-    <div>
+    <Root>
       <motion.div
         initial={{ x: 280 }}
         animate={{ x: 0 }}
@@ -68,10 +74,8 @@ const Payment: React.FC<Values> = () => {
           {fakeData.find(operator).name}
         </SelectedOperator>
       </motion.div>
-      <ContainerPayment>
-        <MyForm />
-      </ContainerPayment>
-    </div>
+      <MyForm />
+    </Root>
   );
 };
 

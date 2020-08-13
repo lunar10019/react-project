@@ -3,18 +3,16 @@ import { useField, ErrorMessage } from 'formik';
 import TextField from '@material-ui/core/TextField';
 import MaskedInput from 'react-input-mask';
 import styled from 'styled-components';
-import { InputBaseComponentProps } from '@material-ui/core';
+import { useIntl } from 'react-intl';
 
 export const TextError = styled.div`
   color: red;
   margin-bottom: -8px;
   margin-right: -50px;
-
   @media (min-width: 320px) {
     font-size: 14px;
   }
 `;
-
 interface Values {
   name: string;
   type?: string;
@@ -25,10 +23,9 @@ interface Values {
 }
 
 //Компонент
-
 const MyMaskField: React.FC<Values> = ({ id, name, variant, type, label }) => {
   const [field, meta] = useField(name);
-
+  const intl = useIntl();
   return (
     <Fragment>
       <MaskedInput
@@ -49,7 +46,7 @@ const MyMaskField: React.FC<Values> = ({ id, name, variant, type, label }) => {
         )}
       </MaskedInput>
       <TextError>
-        <ErrorMessage name={name} />
+        <ErrorMessage name={name} render={(id) => <div>{intl.formatMessage({ id })}</div>} />
       </TextError>
     </Fragment>
   );

@@ -4,59 +4,18 @@ import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core';
 import theme from './theme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import styled from 'styled-components';
 import Router from './components/Router/Router';
-import img from './image/background.jpeg';
 import Header from './components/header/Header';
+import styled from 'styled-components';
 
-const AppWrapper = styled.section`
-  display: grid;
-  width: 1280px;
-  margin: 0 auto;
-
-  @media (max-width: 1380px) {
-    display: flex;
-    justify-content: center;
-    width: 900px;
-  }
-
-  @media (max-width: 1000px) {
-    display: flex;
-    justify-content: center;
-    width: 500px;
-  }
-
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr;
-    grid-gap: 50px 20px;
-    justify-items: start;
-  }
-  @media (max-width: 450px) {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  @media (max-width: 375px) {
-    display: flex;
-    justify-content: center;
-    width: 370px;
-  }
-
-  @media (max-width: 320px) {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-`;
-
-const Background = styled.section`
-  background-image: url(${img});
-  backdrop-filter: blur(3px);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
+const Background = styled.img`
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: -6px;
+  filter: blur(3px);
+  min-width: 100%;
+  min-height: 100%;
 `;
 
 const App = () => {
@@ -64,12 +23,9 @@ const App = () => {
     <HashRouter>
       <ThemeProvider theme={theme}>
         <MuiThemeProvider>
-          <Background>
-            <Header />
-            <AppWrapper>
-              <Router />
-            </AppWrapper>
-          </Background>
+          <Background src={process.env.PUBLIC_URL + '/images/background.jpeg'} id="bg" alt="" />
+          <Header />
+          <Router />
         </MuiThemeProvider>
       </ThemeProvider>
     </HashRouter>

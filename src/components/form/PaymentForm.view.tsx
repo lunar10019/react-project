@@ -11,7 +11,7 @@ const BlockForm = styled.section`
   display: inline-block;
   align-self: center;
   align-items: center;
-  padding: 20px 70px 50px 70px;
+  /* padding: 30px 80px 60px 80px; */
   background: white;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   input[type='number'] {
@@ -55,10 +55,6 @@ const initialValues: FormValues = {
   phoneNumber: '',
   price: '',
 };
-
-interface State {
-  textmask: string;
-}
 
 //Компонент
 const MyForm: React.FC = (props) => {

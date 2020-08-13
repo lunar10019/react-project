@@ -1,27 +1,37 @@
 import React, { ReactElement } from 'react';
-import { Form, FormikHelpers } from 'formik';
+import { Form } from 'formik';
 import MyTextField from './Input';
 import MyMaskField from './InputWithMask';
 import Button from '@material-ui/core/Button';
 import { CircularProgress } from 'material-ui';
 import styled from 'styled-components';
-// import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl, FormattedMessage, defineMessages } from 'react-intl';
 
+const i18n = defineMessages({
+  phoneLabel: {
+    id: 'phoneNumber',
+    defaultMessage: 'Номер телефона',
+  },
+  priceLabel: {
+    id: 'price',
+    defaultMessage: 'Сумма платежа',
+  },
+});
 const Indent = styled.section`
   margin: 25px 0;
 `;
 
 interface Props {
   isLoading?: boolean;
+  intl: any;
 }
-
-export const Forma = ({ isLoading = false }: Props): ReactElement<Props> => {
+export const Forma = ({ isLoading = false, intl }: Props): ReactElement<Props> => {
   return (
     <Form>
       <Indent>
         <MyMaskField
           variant="outlined"
-          label="Номер телефона"
+          label={intl.formatMessage(i18n.phoneLabel)}
           name="phoneNumber"
           id="phoneNumber"
           type="string"
@@ -31,7 +41,7 @@ export const Forma = ({ isLoading = false }: Props): ReactElement<Props> => {
       <Indent>
         <MyTextField
           variant="outlined"
-          label="Сумма платежа"
+          label={intl.formatMessage(i18n.priceLabel)}
           name="price"
           id="price"
           type="number"
@@ -41,17 +51,17 @@ export const Forma = ({ isLoading = false }: Props): ReactElement<Props> => {
       <div>
         {!isLoading && (
           <Button variant="outlined" type="submit">
-            Оплатить
+            <FormattedMessage id="pay" defaultMessage="Оплатить" />
           </Button>
         )}
         {isLoading && (
           <Button variant="outlined" type="submit" disabled>
-            Оплата...
-            <CircularProgress color="#6200ea" />
+            <FormattedMessage id="payment" defaultMessage="Оплата" />
+            <CircularProgress color="#6200EA" />
           </Button>
         )}
       </div>
     </Form>
   );
 };
-export default Forma;
+export default injectIntl(Forma);
