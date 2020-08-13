@@ -17,9 +17,6 @@ const i18n = defineMessages({
     defaultMessage: 'Сумма платежа',
   },
 });
-const Indent = styled.section`
-  margin: 25px 0;
-`;
 
 interface Props {
   isLoading?: boolean;
@@ -28,26 +25,23 @@ interface Props {
 export const Forma = ({ isLoading = false, intl }: Props): ReactElement<Props> => {
   return (
     <Form>
-      <Indent>
-        <MyMaskField
-          variant="outlined"
-          label={intl.formatMessage(i18n.phoneLabel)}
-          name="phoneNumber"
-          id="phoneNumber"
-          type="string"
-          required
-        />
-      </Indent>
-      <Indent>
-        <MyTextField
-          variant="outlined"
-          label={intl.formatMessage(i18n.priceLabel)}
-          name="price"
-          id="price"
-          type="number"
-          required
-        />
-      </Indent>
+      <MyMaskField
+        variant="outlined"
+        label={intl.formatMessage(i18n.phoneLabel)}
+        name="phoneNumber"
+        id="phoneNumber"
+        type="string"
+        required
+      />
+
+      <MyTextField
+        variant="outlined"
+        label={intl.formatMessage(i18n.priceLabel)}
+        name="price"
+        id="price"
+        type="number"
+        required
+      />
       <div>
         {!isLoading && (
           <Button variant="outlined" type="submit">

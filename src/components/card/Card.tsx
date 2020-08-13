@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) =>
     img: {
       height: '150px',
       objectFit: 'contain',
+      textDecorationLine: 'none',
     },
   }),
 );

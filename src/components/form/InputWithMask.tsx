@@ -7,8 +7,6 @@ import { useIntl } from 'react-intl';
 
 export const TextError = styled.div`
   color: red;
-  margin-bottom: -8px;
-  margin-right: -50px;
   @media (min-width: 320px) {
     font-size: 14px;
   }
@@ -45,9 +43,12 @@ const MyMaskField: React.FC<Values> = ({ id, name, variant, type, label }) => {
           />
         )}
       </MaskedInput>
-      <TextError>
-        <ErrorMessage name={name} render={(id) => <div>{intl.formatMessage({ id })}</div>} />
-      </TextError>
+      <div style={{ height: '25px' }}>
+        <ErrorMessage
+          name={name}
+          render={(id) => <TextError>{intl.formatMessage({ id })}</TextError>}
+        />
+      </div>
     </Fragment>
   );
 };

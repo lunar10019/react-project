@@ -5,7 +5,6 @@ import fakeData from '../fakeData/operators.json';
 import { motion } from 'framer-motion';
 import MyForm from '../components/form/PaymentForm.view';
 import { FormattedMessage } from 'react-intl';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 interface Values {
   fakeData: Array<Object>;

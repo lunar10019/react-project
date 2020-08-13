@@ -30,9 +30,11 @@ const MyTextField: React.FC<Values> = ({ id, name, type, variant, label }) => {
         onChange={field.onChange}
         error={!!meta.touched && !!meta.error}
       />
-      <TextError>
-        <ErrorMessage name={name} render={(id) => <div>{intl.formatMessage({ id })}</div>} />
-      </TextError>
+      <div style={{ height: '25px' }}>
+        <TextError>
+          <ErrorMessage name={name} render={(id) => <div>{intl.formatMessage({ id })}</div>} />
+        </TextError>
+      </div>
     </Fragment>
   );
 };
