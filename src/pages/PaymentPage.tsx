@@ -43,8 +43,9 @@ const Payment: React.FC<Values> = () => {
   const { id } = useParams();
 
   const operator = (fake) => {
-    return fake.id == id;
+    return fake.id === id;
   };
+
   return (
     <Root>
       <motion.div

@@ -23,7 +23,7 @@ interface Values {
   alt: string;
   image: string;
   title: string;
-  id: number;
+  id: string;
 }
 
 const ImgMediaCard1: React.FC<Values> = ({ alt, image, title, id }) => {

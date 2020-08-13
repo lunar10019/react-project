@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core';
 import theme from './theme';
@@ -22,9 +22,11 @@ const App = () => {
     <HashRouter>
       <ThemeProvider theme={theme}>
         <MuiThemeProvider>
-          <Background src={process.env.PUBLIC_URL + '/images/background.jpeg'} id="bg" alt="" />
-          <Header />
-          <Router />
+          <Fragment>
+            <Background src={process.env.PUBLIC_URL + '/images/background.jpeg'} id="bg" alt="" />
+            <Header />
+            <Router />
+          </Fragment>
         </MuiThemeProvider>
       </ThemeProvider>
     </HashRouter>

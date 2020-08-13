@@ -1,20 +1,20 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "МТС",
     "url": "https://vz-nn.ru/upload/iblock/b7d/MTS_Logo_rus_r.jpg",
     "alt": "MTC",
     "title": "МТС"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Beeline",
     "url": "https://alimpic.ru/wp-content/uploads/2018/07/biline.png",
     "alt": "BEELINE",
     "title": "BEELINE"
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "MegaFon",
     "url": "https://worldskills2019.com/application/files/5115/6449/4534/megafon.png",
     "alt": "MEGAFON",

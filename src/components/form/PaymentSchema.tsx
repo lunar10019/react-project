@@ -21,7 +21,7 @@ const i18n = defineMessages({
   },
 });
 
-const phoneRegExp = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+const phoneRegExp = /^((8|\+7)[- ]?)?(\(?\d{3}\)?[- ]?)?[\d\- ]{7,10}$/;
 
 export const PaymentSchema = Yup.object().shape({
   phoneNumber: Yup.string()
