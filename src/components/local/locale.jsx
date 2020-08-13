@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { IntlProvider } from 'react-intl';
-import English from '../../lang/en-US.json';
-import Russian from '../../lang/ru-RU.json';
+import en from '../../lang/en-US.json';
+import ru from '../../lang/ru-RU.json';
 
-export const Context = React.createContext();
+export const LocaleContext = React.createContext();
 
-const local = navigator.language;
+const local = navigator.language.slice(0, 2);
 
 let lang;
-if (local === 'ru-RU') {
-  lang = Russian;
+if (local === 'ru') {
+  lang = ru;
 } else {
-  lang = English;
+  lang = en;
 }
 
 const WrapperLocale = (props) => {
@@ -21,19 +21,19 @@ const WrapperLocale = (props) => {
   const selectLang = (e) => {
     const newLocale = e.target.value;
     setLocale(newLocale);
-    if (newLocale === 'en-US') {
-      setMessages(English);
+    if (newLocale === 'en') {
+      setMessages(en);
     } else {
-      setMessages(Russian);
+      setMessages(ru);
     }
   };
 
   return (
-    <Context.Provider value={{ locale, selectLang }}>
+    <LocaleContext.Provider value={{ locale, selectLang }}>
       <IntlProvider messages={messages} locale={locale}>
         {props.children}
       </IntlProvider>
-    </Context.Provider>
+    </LocaleContext.Provider>
   );
 };
 

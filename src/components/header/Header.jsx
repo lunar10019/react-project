@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { Context } from '../local/locale';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { LocaleContext } from '../local/locale';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -17,7 +17,11 @@ const useStyles = makeStyles((theme) =>
     },
     selectEmpty: {
       color: white,
+      backgroundColor: '#212121',
       marginTop: theme.spacing(2),
+    },
+    icon: {
+      color: white,
     },
   }),
 );
@@ -25,7 +29,8 @@ const useStyles = makeStyles((theme) =>
 const Header = () => {
   const classes = useStyles();
 
-  const context = useContext(Context);
+  const context = useContext(LocaleContext);
+
   return (
     <AppBar>
       <Toolbar>
@@ -34,15 +39,15 @@ const Header = () => {
             value={context.locale}
             className={classes.selectEmpty}
             onChange={context.selectLang}
+            classes={{
+              icon: classes.icon,
+            }}
+            variant="standard"
             inputProps={{ 'aria-label': 'Without label' }}>
-            <MenuItem value="ru-RU">Русский</MenuItem>
-            <MenuItem value="en-US">English</MenuItem>
+            <MenuItem value="ru">Русский</MenuItem>
+            <MenuItem value="en">English</MenuItem>
           </Select>
         </FormControl>
-        {/* <select value={context.locale} onChange={context.selectLang}>
-          <option value="en-US">English</option>
-          <option value="ru-RU">Русский</option>
-        </select> */}
       </Toolbar>
     </AppBar>
   );

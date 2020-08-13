@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import fakeData from '../fakeData/operators.json';
 import { motion } from 'framer-motion';
-import MyForm from '../components/form/PaymentForm.view';
+import MyForm from '../components/form/PaymentForm.form';
 import { FormattedMessage } from 'react-intl';
 
 interface Values {
@@ -13,6 +13,7 @@ interface Values {
 const Root = styled.main`
   max-width: 1280px;
   margin: 0 auto;
+  padding-left: 15px;
 `;
 
 const SelectedOperator = styled.h1`
@@ -35,24 +36,6 @@ const SelectedOperator = styled.h1`
   @media (max-width: 360px) {
     font-size: 21px;
     padding: 80px 0 30px;
-  }
-`;
-
-const ContainerPayment = styled.section`
-  display: flex;
-  justify-content: start;
-
-  @media (max-width: 320px) {
-    font-size: 21px;
-    justify-content: center;
-  }
-
-  @media (max-width: 375px) {
-    justify-content: center;
-  }
-
-  @media (max-width: 500px) {
-    justify-content: center;
   }
 `;
 

@@ -1,61 +1,101 @@
-import React, { ReactElement } from 'react';
-import { Form } from 'formik';
-import MyTextField from './Input';
-import MyMaskField from './InputWithMask';
-import Button from '@material-ui/core/Button';
-import { CircularProgress } from 'material-ui';
+import React, { useState, ReactElement } from 'react';
+import { Formik, FormikHelpers } from 'formik';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { injectIntl, FormattedMessage, defineMessages } from 'react-intl';
+import { PaymentSchema } from './PaymentSchema';
+import Forma from './PaymentForm.view';
+import { FormattedMessage, useIntl, defineMessages } from 'react-intl';
+
+///STYLE
+const BlockForm = styled.section`
+  display: inline-block;
+  align-self: center;
+  align-items: center;
+  /* padding: 30px 80px 60px 80px; */
+  background: white;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  @media (min-width: 320px) {
+    margin: auto;
+    align-self: flex-start;
+    align-items: flex-start;
+    padding: 10px 50px 30px 50px;
+  }
+`;
+
+const Title = styled.h1`
+  margin-bottom: 60px;
+  font-size: 30px;
+  font-family: 'Officina Serif' !important;
+  font-weight: 700 !important;
+  color: #120338;
+
+  @media (max-width: 320px) {
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+`;
+
+const sleep = (time) => new Promise((acc) => setTimeout(acc, time));
+
+interface FormValues {
+  phoneNumber: string | number;
+  price: string;
+}
+
+const initialValues: FormValues = {
+  phoneNumber: '',
+  price: '',
+};
 
 const i18n = defineMessages({
-  phoneLabel: {
-    id: 'phoneNumber',
-    defaultMessage: 'Номер телефона',
+  successMsg: {
+    id: 'successMsg',
+    defaultMessage: 'Оплата мобильной связи прошла успешно!',
   },
-  priceLabel: {
-    id: 'price',
-    defaultMessage: 'Сумма платежа',
+  failMsg: {
+    id: 'failMsg',
+    defaultMessage: 'Произошла ошибка! Повторите операцию',
   },
 });
 
-interface Props {
-  isLoading?: boolean;
-  intl: any;
-}
-export const Forma = ({ isLoading = false, intl }: Props): ReactElement<Props> => {
-  return (
-    <Form>
-      <MyMaskField
-        variant="outlined"
-        label={intl.formatMessage(i18n.phoneLabel)}
-        name="phoneNumber"
-        id="phoneNumber"
-        type="string"
-        required
-      />
+//Компонент
+const MyForm: React.FC = (props) => {
+  const intl = useIntl();
+  const successMsg = [i18n.successMsg, i18n.failMsg];
 
-      <MyTextField
-        variant="outlined"
-        label={intl.formatMessage(i18n.priceLabel)}
-        name="price"
-        id="price"
-        type="number"
-        required
-      />
-      <div>
-        {!isLoading && (
-          <Button variant="outlined" type="submit">
-            <FormattedMessage id="pay" defaultMessage="Оплатить" />
-          </Button>
-        )}
-        {isLoading && (
-          <Button variant="outlined" type="submit" disabled>
-            <FormattedMessage id="payment" defaultMessage="Оплата" />
-            <CircularProgress color="#6200EA" />
-          </Button>
-        )}
-      </div>
-    </Form>
+  const [isLoading, setLoading] = useState(false);
+
+  const handleSubmit = async (values: FormValues, formikHelpers: FormikHelpers<FormValues>) => {
+    setLoading(true);
+    await sleep(3000);
+    setLoading(false);
+    await sleep(1);
+    alert(intl.formatMessage(successMsg[Math.round(Math.random())]));
+  };
+
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
+      <BlockForm>
+        <Title>
+          <FormattedMessage id="replenishAccounts" defaultMessage="Пополнить счёт" />
+        </Title>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={PaymentSchema}
+          component={(): ReactElement => <Forma isLoading={isLoading} />}></Formik>
+      </BlockForm>
+    </motion.div>
   );
 };
-export default injectIntl(Forma);
+
+export default MyForm;
