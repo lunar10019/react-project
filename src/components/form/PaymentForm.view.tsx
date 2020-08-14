@@ -1,4 +1,4 @@
-import React, { ReactElement, Fragment } from 'react';
+import React, { ReactElement } from 'react';
 import { Form } from 'formik';
 import MyTextField from './Input';
 import MyMaskField from './InputWithMask';
@@ -41,19 +41,17 @@ export const Forma = ({ isLoading = false, intl }: Props): ReactElement<Props> =
         type="number"
         required
       />
-      <Fragment>
-        {!isLoading && (
-          <Button variant="outlined" type="submit">
-            <FormattedMessage id="pay" defaultMessage="Оплатить" />
-          </Button>
-        )}
-        {isLoading && (
-          <Button variant="outlined" type="submit" disabled>
-            <FormattedMessage id="payment" defaultMessage="Оплата" />
-            <CircularProgress color="#6200EA" />
-          </Button>
-        )}
-      </Fragment>
+      {!isLoading && (
+        <Button variant="outlined" type="submit">
+          <FormattedMessage id="pay" defaultMessage="Оплатить" />
+        </Button>
+      )}
+      {isLoading && (
+        <Button variant="outlined" type="submit" disabled>
+          <FormattedMessage id="payment" defaultMessage="Оплата" />
+          <CircularProgress color="#6200EA" />
+        </Button>
+      )}
     </Form>
   );
 };

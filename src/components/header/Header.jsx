@@ -7,6 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { white } from 'material-ui/styles/colors';
+import { FormattedMessage } from 'react-intl';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -44,8 +45,12 @@ const Header = () => {
             }}
             variant="standard"
             inputProps={{ 'aria-label': 'Without label' }}>
-            <MenuItem value="ru">Русский</MenuItem>
-            <MenuItem value="en">English</MenuItem>
+            <MenuItem value="ru">
+              <FormattedMessage id="ru" defaultMessage="Русский" />
+            </MenuItem>
+            <MenuItem value="en">
+              <FormattedMessage id="en" defaultMessage="English" />
+            </MenuItem>
           </Select>
         </FormControl>
       </Toolbar>

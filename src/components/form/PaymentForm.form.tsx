@@ -92,7 +92,8 @@ const MyForm: React.FC = (props) => {
           initialValues={initialValues}
           onSubmit={handleSubmit}
           validationSchema={PaymentSchema}
-          component={(): ReactElement => <Forma isLoading={isLoading} />}></Formik>
+          component={(): ReactElement => <Forma isLoading={isLoading} />}
+        />
       </BlockForm>
     </motion.div>
   );

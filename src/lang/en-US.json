@@ -12,5 +12,7 @@
   "amountLimit": "Maximum amount 1000",
   "enterAmount": "Enter the amount",
   "successMsg": "Mobile payment was successful!",
-  "failMsg": "Error occurred, repeat operation"
+  "failMsg": "Error occurred, repeat operation",
+  "ru": "Русский",
+  "en": "English"
 }

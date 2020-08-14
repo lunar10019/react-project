@@ -6,8 +6,12 @@ import { motion } from 'framer-motion';
 import MyForm from '../components/form/PaymentForm.form';
 import { FormattedMessage } from 'react-intl';
 
-interface Values {
-  fakeData: Array<Object>;
+interface FakeData {
+  id: string;
+  name: string;
+  title: string;
+  url: string;
+  alt: string;
 }
 
 const Root = styled.main`
@@ -39,7 +43,7 @@ const SelectedOperator = styled.h1`
   }
 `;
 
-const Payment: React.FC<Values> = () => {
+const Payment: React.FC<FakeData> = () => {
   const { id } = useParams();
 
   const operator = (fake) => {
